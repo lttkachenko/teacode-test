@@ -1,0 +1,26 @@
+.app {
+  text-align: left;
+
+  header, footer {
+    min-height: 45px;
+    min-width: 100%;
+  }
+
+  header {
+    .logo {
+      height: 40px;
+      width: 40px;
+    }
+  };
+
+  footer {
+    bottom: 0;
+    height: 48px;
+    left: 0;
+    position: fixed;
+
+    .navbar-brand {
+      padding-top: 0;
+    }
+  } ;
+}
