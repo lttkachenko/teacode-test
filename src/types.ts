@@ -7,15 +7,15 @@ export enum Genders {
 export type Gender = Genders.MALE | Genders.FEMALE;
 export type ObjectLiteral = { [key: string]: unknown };
 export type PropsWithChildren<P> = P & { children?: ReactNode };
-export type ApiDataSet = ObjectLiteral[];
 export type UserData = {
-  id?: number;
+  id: number;
   avatar?: string;
-  first_name?: string;
-  last_name?: string;
+  first_name: string;
+  last_name: string;
   gender?: Gender;
   isSelected?: boolean;
 };
+export type ApiDataSet = UserData[];
 export type DataHookProps = {
   data?: ApiDataSet;
   setData: (d: SetStateAction<never[]>) => void;

@@ -10,19 +10,15 @@ export const AppDataProvider = ({ children }: PropsWithChildren<unknown>) => {
   const [isLoading, setIsLoading] = React.useState(false);
   const value = { data, setData, isLoading };
 
-  const { loadData } = useData({ setData, setIsLoading });
+  const { loadData } = useData({ setData, setIsLoading, sorting: { last_name: 'ASC', first_name: 'ASC' } });
 
   React.useEffect(() => {
-    try {
-      loadData().then(() => console.log('Data fetch succeeded.'));
-    } catch (e) {
-      console.error('Data fetch has failed! Error: ', e);
-    }
+    loadData().then(() => console.log('Data fetch succeeded.'));
   }, []);
 
-  React.useEffect(() => {
+  /*React.useEffect(() => {
     console.log('Data: ', data);
-  }, [data])
+  }, [data]);*/
 
   return <AppDataContext.Provider value={value}>{children}</AppDataContext.Provider>;
 };
