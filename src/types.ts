@@ -1,14 +1,30 @@
-import { ReactElement, ReactNode, SetStateAction } from 'react';
+import { ReactNode, SetStateAction } from 'react';
 
+export enum Genders {
+  MALE = 'Male',
+  FEMALE = 'Female',
+}
+export type Gender = Genders.MALE | Genders.FEMALE;
 export type ObjectLiteral = { [key: string]: unknown };
-export type ReactText = string | number;
-export type ReactChild = ReactElement | ReactText;
 export type PropsWithChildren<P> = P & { children?: ReactNode };
-export type ApiDataSet = ObjectLiteral | ObjectLiteral[];
+export type ApiDataSet = ObjectLiteral[];
+export type UserData = {
+  id?: number;
+  avatar?: string;
+  first_name?: string;
+  last_name?: string;
+  gender?: Gender;
+  isSelected?: boolean;
+};
 export type DataHookProps = {
   data?: ApiDataSet;
   setData: (d: SetStateAction<never[]>) => void;
   isLoading?: boolean;
   setIsLoading: (l: boolean) => void;
   sorting?: ObjectLiteral;
+};
+export type AppContextData = {
+  data?: ApiDataSet;
+  setData: (d: SetStateAction<never[]>) => void;
+  isLoading?: boolean;
 };

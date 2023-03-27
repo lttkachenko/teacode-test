@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { PropsWithChildren } from '../types';
+import { PropsWithChildren, AppContextData } from '../types';
 import { useData } from '../hooks';
 
-export const AppDataContext = React.createContext({});
+export const AppDataContext = React.createContext<AppContextData>({} as AppContextData);
 
 export const AppDataProvider = ({ children }: PropsWithChildren<unknown>) => {
   const [data, setData] = React.useState([]);
@@ -14,12 +14,15 @@ export const AppDataProvider = ({ children }: PropsWithChildren<unknown>) => {
 
   React.useEffect(() => {
     try {
-      loadData();
-      console.log('Data fetched: ', data);
+      loadData().then(() => console.log('Data fetch succeeded.'));
     } catch (e) {
       console.error('Data fetch has failed! Error: ', e);
     }
   }, []);
+
+  React.useEffect(() => {
+    console.log('Data: ', data);
+  }, [data])
 
   return <AppDataContext.Provider value={value}>{children}</AppDataContext.Provider>;
 };

@@ -9,7 +9,6 @@ export const useData = ({ setData, setIsLoading }: DataHookProps) => {
     setIsLoading(true);
 
     const result = await (await fetch(testDataApiUrl)).json();
-    console.log('Result: ', result);
     setData(result);
 
     setIsLoading(false);

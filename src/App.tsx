@@ -1,27 +1,31 @@
 import React from 'react';
+import { Container, Navbar, NavbarBrand } from 'reactstrap';
 
-import { AppDataProvider } from "./contexts";
+import { AppDataProvider } from './contexts';
+import { UsersList } from './components';
 
 import logo from './logo.svg';
 import './App.scss';
 
 const App = () => (
   <AppDataProvider>
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className="app">
+      <header>
+        <Navbar className="my" color="dark" dark>
+          <NavbarBrand href="/">
+            <img alt="logo" src={logo} className="logo" />
+            Tea-Code Test &raquo; Contacts
+          </NavbarBrand>
+        </Navbar>
       </header>
+      <main>
+        <UsersList />
+      </main>
+      <footer>
+        <Navbar className="my" color="dark" dark>
+          <NavbarBrand href="/">Tea-Code&reg; 2023</NavbarBrand>
+        </Navbar>
+      </footer>
     </div>
   </AppDataProvider>
 );

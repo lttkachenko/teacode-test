@@ -33,7 +33,9 @@
     "husky": "^8.0.3",
     "lint-staged": "^13.2.0",
     "prettier": "^2.8.7",
-    "sass": "^1.60.0"
+    "sass": "^1.60.0",
+    "stylelint": "^15.3.0",
+    "stylelint-scss": "^4.6.0"
   },
   "scripts": {
     "start": "react-scripts start",
